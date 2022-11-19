@@ -1,0 +1,25 @@
+{
+  "name": "social-network-backend",
+  "version": "1.0.0",
+  "description": "A backend API for a social network.",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Opaleone/social-network-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Opaleone/social-network-backend/issues"
+  },
+  "homepage": "https://github.com/Opaleone/social-network-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  }
+}
