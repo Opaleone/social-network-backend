@@ -1,26 +1,7 @@
 const { ObjectId } = require('bson')
 const { Schema, model } = require('mongoose')
 
-const thoughtSchema = new Schema(
-  {
-    thoughtText: { type: String, required: true },
-    createdAt: {
-      date: Date,
-      default: Date.now,
-      get: (date) => timeSince(date)
-    },
-    user: { 
-      _id: ObjectId,
-      required: true 
-    },
-    reactions: [reactionSchema]
-  },
-  {
-    toJSON: {
-      getters: true,
-    }
-  }
-)
+const date = new Date().toLocaleDateString()
 
 const reactionSchema = new Schema(
   {
@@ -38,10 +19,31 @@ const reactionSchema = new Schema(
       required: true,
     },
     createdAt: {
-      date: Date,
-      default: Date.now,
+      type: String,
+      default: date,
       get: (date) => timeSince(date)
     },
+  }
+)
+
+const thoughtSchema = new Schema(
+  {
+    thoughtText: { type: String, required: true },
+    createdAt: {
+      type: String,
+      default: date,
+      get: (date) => timeSince(date)
+    },
+    user: { 
+      type: Schema.Types.ObjectId,
+      required: true,
+    },
+    reactions: [reactionSchema]
+  },
+  {
+    toJSON: {
+      getters: true,
+    }
   }
 )
 
